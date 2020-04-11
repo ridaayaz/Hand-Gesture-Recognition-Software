@@ -1,5 +1,0 @@
-Working Material:
-
-1) https://towardsdatascience.com/american-sign-language-hand-gesture-recognition-f1c4468fb177
-
-2) https://edu.authorcafe.com/academies/6813/sign-language-recognition
