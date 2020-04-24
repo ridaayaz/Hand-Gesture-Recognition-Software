@@ -1,3 +1,3 @@
 # Hand-Gesture-Recognition-Software
-We are going to create a hand recognition tool  by using Pycharm , Python Languague and OpenCv libararies.
-Frist, open the web cam and captuer the frames from the camera then future by using Convesity hull model we will recongnize the hand pattern and show the result on the screen.
+This project is based on Hand Gesture Recognition by using Pycharm, Python Languague and OpenCv libararies.
+In this we have used web cam to capture the freams of hand and then future by using Convexity Hull Model it recognizes the gesture of hand and show the result on the screen.
