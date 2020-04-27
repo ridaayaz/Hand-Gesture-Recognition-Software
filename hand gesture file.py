@@ -1,14 +1,16 @@
 # Imports
-import cv2
+import cv2      # OpenCV
 import numpy as np
 import math
 
-# Open Camera
-capture = cv2.VideoCapture(0)
-while capture.isOpened():
+# Camera Configuration
+capture_frame = cv2.VideoCapture(0)
+# VideoCapture grab the live stream and store the live frames in Capture_frame variable and it is continues.
+while capture_frame.isOpened():    # loop is used and loop is infinite and it continues to capture the stream
+    # until we end this.
 
     # Capture frames from camera
-    ret, frame = capture.read()
+    re, frame = capture_frame.read()
     # Get hand data from rectangle sub window
     cv2.rectangle(frame, (100, 100), (300, 300), (0, 255, 0), 0)
     crop_image = frame[100:300, 100:300]
@@ -29,7 +31,7 @@ while capture.isOpened():
 
     # Apply Gaussian Blur and Threshold
     filtered = cv2.GaussianBlur(erosion, (3, 3), 0)
-    ret, thresh = cv2.threshold(filtered, 127, 255, 0)
+    re, thresh = cv2.threshold(filtered, 127, 255, 0)
 
     # Show threshold image
     cv2.imshow("Thresholded", thresh)
@@ -90,10 +92,7 @@ while capture.isOpened():
             cv2.putText(frame, "FOUR", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
         elif count_defects == 4:
             cv2.putText(frame, "FIVE", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
-        elif count_defects == 5:
-            cv2.putText(frame, "SIX", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
-        elif count_defects == 6:
-            cv2.putText(frame, "SEVEN", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
+
         else:
             pass
     except:
@@ -101,13 +100,13 @@ while capture.isOpened():
 
     # Show required images
     cv2.imshow("Gesture", frame)
-    all_image = np.hstack((drawing, crop_image))  
+    all_image = np.hstack((drawing, crop_image))
     cv2.imshow('Contours', all_image)
 
     # Close the camera if 'q' is pressed
     if cv2.waitKey(1) == ord('q'):
         break
 
-capture.release()
+capture_frame.release()
 cv2.destroyAllWindows()
 
